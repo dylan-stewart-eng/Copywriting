@@ -621,7 +621,8 @@
         the privacy notice below. Prefer one hosted in the UK or EEA.
         Alternatively delete the form entirely and keep the email link.
     -->
-      <form action="[[FORM ENDPOINT URL]]" method="POST">
+      <form action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="496fb9d1-bd62-4289-a271-f702d7e86b33">
         <div class="field">
           <label for="name">Your name</label>
           <input id="name" name="name" type="text" autocomplete="name" required>
@@ -688,10 +689,9 @@
 
       <h3>Who else sees it</h3>
       <p>
-        My website host, [[HOST NAME]]; my form provider, [[FORM PROVIDER]]; and my email provider,
-        [[EMAIL PROVIDER]]. Each acts as a processor on my instructions under a written agreement.
-        [[If any of these store data outside the UK or EEA, say so here and name the safeguard used
-        — UK IDTA/Addendum or EU Standard Contractual Clauses.]] Your data is never sold or shared
+        My website host, GitHub, inc.; my form provider, Web3Forms; and my email provider,
+        Google LLC. Each acts as a processor on my instructions under a written agreement.
+        GitHub and Google process data under the EU-U.S. Data Privacy Framework and its UK Extension. Web3Forms processes form submissions under Standard Contractual Clauses. Your data is never sold or shared
         for advertising.
       </p>
 
