@@ -6,6 +6,19 @@
 <title>[[BUSINESS NAME]] — Case studies for engineering companies</title>
 <meta name="description" content="I write case studies for companies that sell technical products — interviewing your engineers, getting the numbers, and producing evidence a prospect can act on.">
 
+<!-- Social preview (LinkedIn, Twitter/X). og:image currently points at headshot.jpeg
+     as a placeholder — replace with a dedicated 1200x630 social-card image
+     (business name + one line of positioning) before this goes live. -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dylan-stewart-eng.github.io/Copywriting/">
+<meta property="og:title" content="[[BUSINESS NAME]] — Case studies for engineering companies">
+<meta property="og:description" content="I write case studies for companies that sell technical products — interviewing your engineers, getting the numbers, and producing evidence a prospect can act on.">
+<meta property="og:image" content="https://dylan-stewart-eng.github.io/Copywriting/headshot.jpeg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="[[BUSINESS NAME]] — Case studies for engineering companies">
+<meta name="twitter:description" content="I write case studies for companies that sell technical products — interviewing your engineers, getting the numbers, and producing evidence a prospect can act on.">
+<meta name="twitter:image" content="https://dylan-stewart-eng.github.io/Copywriting/headshot.jpeg">
+
 <!--
 =====================================================================
  BEFORE THIS GOES LIVE — REPLACE EVERY [[PLACEHOLDER]]
@@ -105,8 +118,12 @@
     gap:16px;
     align-items:center;
     justify-content:space-between;
-    padding:22px 0;
+    padding:16px 0;
     border-bottom:1px solid var(--rule);
+    position:sticky;
+    top:0;
+    z-index:40;
+    background:var(--bg);
   }
   .wordmark{
     font-size:17px;
@@ -118,6 +135,7 @@
   .wordmark span{color:var(--accent);}
   .masthead nav{
     display:flex;
+    align-items:center;
     gap:24px;
     font-size:15px;
   }
@@ -126,6 +144,14 @@
     text-decoration:none;
   }
   .masthead nav a:hover{color:var(--accent);}
+  .masthead nav a.cta{
+    background:var(--accent);
+    color:#fff;
+    padding:7px 14px;
+    border-radius:999px;
+    font-size:14px;
+  }
+  .masthead nav a.cta:hover{background:var(--accent-dark); color:#fff;}
 
   /* ---------- section furniture ---------- */
   .band{padding:clamp(48px,7vw,84px) 0; border-bottom:1px solid var(--rule);}
@@ -398,7 +424,12 @@
   .direct{font-size:15px; margin-top:28px; color:var(--ink-soft);}
   .direct a{font-weight:600;}
 
-  /* ---------- legal ---------- */
+  /* ---------- legal ----------
+     #privacy is taken out of normal page flow entirely (display:none) and only
+     rendered when it's the URL's :target — i.e. when reached via an
+     href="#privacy" link. It then covers the viewport as a distinct
+     full-screen page rather than sitting inline between Contact and the
+     footer, so it never reads as scroll-flow dead weight on the sales page. */
   .legal{font-size:15px; color:var(--ink-soft);}
   .legal h3{
     font-size:15px;
@@ -408,6 +439,35 @@
   .legal p, .legal li{max-width:78ch;}
   .legal ul{padding-left:18px;}
   .legal li{margin-bottom:4px;}
+
+  #privacy{
+    display:none;
+  }
+  #privacy:target{
+    display:block;
+    position:fixed;
+    inset:0;
+    z-index:60;
+    overflow-y:auto;
+    background:var(--bg);
+    border-bottom:0;
+    padding:clamp(28px,5vw,56px) 0 80px;
+  }
+  .legal-inner{
+    max-width:940px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,48px);
+  }
+  .legal-close{
+    display:inline-block;
+    margin-bottom:28px;
+    font-family:var(--mono);
+    font-size:13px;
+    letter-spacing:.05em;
+    color:var(--accent);
+    text-decoration:none;
+  }
+  .legal-close:hover{text-decoration:underline;}
 
   /* ---------- footer ---------- */
   footer{padding:clamp(36px,6vw,56px) 0 clamp(28px,5vw,44px);}
@@ -460,7 +520,7 @@
       <a href="#work">What I write</a>
       <a href="#process">Process</a>
       <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+      <a href="#contact" class="cta">Contact</a>
     </nav>
   </header>
 
@@ -676,8 +736,12 @@
       </p>
     </section>
 
-    <!-- ============ PRIVACY ============ -->
+    <!-- ============ PRIVACY ============
+         Hidden from normal scroll flow; only rendered when #privacy is the
+         active URL fragment (CSS :target, no JS). See .legal-inner rules. -->
     <section class="band legal" id="privacy">
+     <div class="legal-inner">
+      <a class="legal-close" href="#top">&larr; Back to site</a>
       <p class="eyebrow">Privacy notice</p>
       <h2 style="font-size:clamp(22px,2.6vw,28px);">How I handle your data</h2>
       <p style="margin-top:16px;">Last updated: 23/07/26</p>
@@ -755,6 +819,9 @@
         proposal and scope agreed in advance, which sets out fees, revisions, copyright transfer on
         payment, and confidentiality. Ask for a copy before commissioning anything.
       </p>
+
+      <a class="legal-close" href="#top">&larr; Back to site</a>
+     </div>
     </section>
 
   </main>
