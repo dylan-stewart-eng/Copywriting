@@ -314,6 +314,21 @@
   }
   @media (max-width:760px){ .split{grid-template-columns:1fr;} }
 
+  .photo{
+    margin:0 0 20px;
+    border:1px solid var(--rule);
+    border-radius:8px;
+    background:var(--panel);
+    overflow:hidden;
+  }
+  .photo img{
+    display:block;
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+    filter:grayscale(.15) contrast(1.02);
+  }
+
   .spec{
     border:1px solid var(--rule);
     border-radius:8px;
@@ -595,15 +610,21 @@
           </p>
         </div>
 
-        <div class="spec">
-          <h3>Background</h3>
-          <dl>
-            <div><dt>Field</dt><dd>MEng Aerospace Engineering Student</dd></div>
-            <div><dt>Current</dt><dd>Mechanical Engineer</dd></div>
-            <div><dt>Technical</dt><dd>CFD, embedded systems, mechanical design</dd></div>
-            <div><dt>Sectors</dt><dd> defense, aerospace, industrial hardware, scientific instruments</dd></div>
-            <div><dt>Based</dt><dd>Belfast &mdash; UK and EU clients</dd></div>
-          </dl>
+        <div>
+          <figure class="photo">
+            <img src="headshot.jpeg" alt="Portrait of Dylan Stewart">
+          </figure>
+
+          <div class="spec">
+            <h3>Background</h3>
+            <dl>
+              <div><dt>Field</dt><dd>MEng Aerospace Engineering Student</dd></div>
+              <div><dt>Current</dt><dd>Mechanical Engineer</dd></div>
+              <div><dt>Technical</dt><dd>CFD, embedded systems, mechanical design</dd></div>
+              <div><dt>Sectors</dt><dd> defense, aerospace, industrial hardware, scientific instruments</dd></div>
+              <div><dt>Based</dt><dd>Belfast &mdash; UK and EU clients</dd></div>
+            </dl>
+          </div>
         </div>
       </div>
     </section>
